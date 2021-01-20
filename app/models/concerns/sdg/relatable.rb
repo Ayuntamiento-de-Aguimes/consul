@@ -51,7 +51,7 @@ module SDG::Relatable
   end
 
   def sdg_target_list
-    sdg_targets.sort.map(&:code).join(", ")
+    (sdg_targets + sdg_local_targets).sort.map(&:code).join(", ")
   end
 
   def sdg_related_list
