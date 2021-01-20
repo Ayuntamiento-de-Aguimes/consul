@@ -12,25 +12,25 @@ class SDG::Target < ApplicationRecord
     I18n.t("sdg.goals.goal_#{goal.code}.targets.target_#{code_key}.title")
   end
 
-  def <=>(target)
-    return unless target.class == self.class
-
-    [goal.code, numeric_subcode] <=> [target.goal.code, target.numeric_subcode]
+  def <=>(any_target)
+    if any_target.class == self.class
+      [goal.code, numeric_subcode] <=> [any_target.goal.code, any_target.numeric_subcode]
+    elsif any_target.class.name == "SDG::LocalTarget"
+      [self, -1] <=> [any_target.target, 1]
+    end
   end
 
   def self.[](code)
     find_by!(code: code)
   end
 
-  protected
-
-    def numeric_subcode
-      if subcode.to_i > 0
-        subcode.to_i
-      else
-        subcode.to_i(36) * 1000
-      end
+  def numeric_subcode
+    if subcode.to_i > 0
+      subcode.to_i
+    else
+      subcode.to_i(36) * 1000
     end
+  end
 
   private
 
