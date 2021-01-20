@@ -167,6 +167,20 @@ describe "SDG Relations", :js do
         expect(page).to have_css "li.is-active h2", exact_text: "Pending"
       end
 
+      scenario "local target filter" do
+        create(:sdg_local_target, code: "4.1.1")
+        create(:sdg_local_target, code: "4.1.2")
+        create(:debate, title: "Rebuild local schools", sdg_local_targets: [SDG::LocalTarget["4.1.1"]])
+        create(:debate, title: "Hire preschool teachers", sdg_local_targets: [SDG::LocalTarget["4.1.2"]])
+
+        visit sdg_management_debates_path
+        select "4.1.1", from: "target_code"
+        click_button "Search"
+
+        expect(page).to have_content "Rebuild local schools"
+        expect(page).not_to have_content "Hire preschool teachers"
+      end
+
       scenario "search within current tab" do
         visit sdg_management_proposals_path(filter: "pending_sdg_review")
 
