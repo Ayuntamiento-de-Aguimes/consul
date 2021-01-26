@@ -3,3 +3,114 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+// 1. CONSUL variables
+// --------------------
+
+$base-font-size:      17px;
+$base-line:           rem-calc(26);
+$small-font-size:     rem-calc(14);
+$line-height:         rem-calc(24);
+$welcome-margin:      rem-calc(24) + 0.2;
+$tiny-font-size:      rem-calc(12);
+
+$brand:             #006b5e;
+$secondary:         #ed4526;
+$terciary:          #292659;
+$navbar-text:       #abd9c7;
+$navbar-text-hover: #f5d682;
+$dark:              darken($brand, 10%);
+
+$text:              #212121;
+$text-medium:       #4d545c;
+$text-light:        #ccc9cc;
+
+$border:            #ccc9cc;
+
+$link:              $brand;
+$link-hover:        darken($link, 20%);
+
+$debates:           $brand;
+
+$like:              #abd9c7;
+$unlike:            #ebb5c9;
+
+$delete:            #de6961;
+$check:             #3db061;
+
+$proposals:         #ffc93b;
+$proposals-dark:    darken($proposals, 10%);
+
+$budget:            #00708a;
+$budget-hover:      darken($budget, 10%);
+
+$highlight:         #e7f2fc;
+$highlight-soft:    #f3f8fd;
+$light:             #f5f7fa;
+$featured:          #ffdc5c;
+
+$footer-border:     #bfc1c3;
+
+$success-bg:        #dff0d8;
+$success-border:    #d6e9c6;
+$color-success:     #3db061;
+
+$info-bg:           #d9edf7;
+$info-border:       #bce8f1;
+$color-info:        #00708a;
+
+$warning-bg:        #fcf8e3;
+$warning-border:    #faebcc;
+$color-warning:     #f5d682;
+
+$alert-bg:          #f2dede;
+$alert-border:      #ebccd1;
+$color-alert:       #de6961;
+
+$pdf-primary:       #006b5e;
+$pdf-secondary:     #ffc93b;
+
+$outline-focus:     3px solid #ffc93b;
+
+$input-height:      $line-height * 2;
+
+// 2. Foundation settings overrides
+// ---------------------------------
+
+$black: #212121;
+$white: #ffffff;
+
+
+
+
+// ---------------------------------
+
+
+
+// 1. Global
+// ---------
+
+$global-font-size: 100%;
+$global-width: rem-calc(1200);
+$global-lineheight: 1.5;
+$foundation-palette: (
+  primary: #006b5e,
+  secondary: #ed4526,
+  success: #3db061,
+  warning: #ffc93b,
+  alert: #de6961,
+);
+$light-gray: #e6e6e6;
+$medium-gray: #ccc9cc;
+$dark-gray: #4d545c;
+$black: #212121;
+$white: #ffffff;
+
+// 2. Admin.scss
+// 01. Global styles
+// -----------------
+
+$admin-color:    #006b5e;
+$sidebar:        #006b5e;
+$sidebar-hover:  #292659;
+$sidebar-active: #bfe3f0;
