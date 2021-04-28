@@ -5,7 +5,7 @@
 //
 
 /*************************************************/
-/* 
+/*
 /*  Table of content
 /*
 /*  00. Basics
@@ -19,22 +19,39 @@
 /*
 /*************************************************/
 
-
 /*************************************************/
 /* 00. Basics */
 /*************************************************/
 /* Font : Roboto Slab */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap");
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
-a, p {
-    font-family: 'Roboto Slab', serif !important;
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+a,
+p {
+  font-family: "Roboto Slab", serif !important;
 }
 
-
 /* Border top titles */
-.home-page h2.title, .home-page h3.title, .custom-page h2.title, .custom-page h3.title, .sdg-goal-show h2.title, .sdg-goal-show h3.title, .sdg-goals-index h2.title, .sdg-goals-index h3.title {
-    border-top-color: $secondary;
+.home-page h2.title,
+.home-page h3.title,
+.custom-page h2.title,
+.custom-page h3.title,
+.sdg-goal-show h2.title,
+.sdg-goal-show h3.title,
+.sdg-goals-index h2.title,
+.sdg-goals-index h3.title {
+  border-top-color: $secondary;
 }
 /* . Border top titles */
 
@@ -48,79 +65,91 @@ a, p {
 
 /* Top links */
 .top-links {
-    background-color: $terciary;
+  background-color: $terciary;
 }
 /* . Top links */
 
 /* Pre top bar */
 .pre-top-bar {
-    background: $white !important;
-    max-width: 100%;
+  background: $white !important;
+  max-width: 100%;
 }
 /* . Pre top bar */
 /* Top bar */
 .top-bar {
-    background: $white !important;
+  background: $white !important;
 
-    .top-bar-title {
-        img {
-            height: 66px !important;
-        }
+  .top-bar-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      height: 100px !important;
     }
+  }
 
-    ul.menu {
-        li {
-            a {
-                color: $brand;
-            }
-            .button {
-                color: $white;
-                background: $secondary;
-            }
-        }
+  .top-bar-subtitle {
+    margin-left: 10px;
+    font-size: rem-calc(24);
+    color: #037189;
+    @include breakpoint(small only) {
+      display: none;
     }
+  }
 
-    /* Menu icon */
-    .menu-icon::after {
+  ul.menu {
+    li {
+      a {
+        color: $brand;
+      }
+      .button {
+        color: $white;
         background: $secondary;
-        -webkit-box-shadow: 0 7px 0 $secondary, 0 14px 0 $secondary;
-        box-shadow: 0 7px 0 $secondary, 0 14px 0 $secondary;
+      }
     }
-    .menu-icon:hover::after {
-        background: $terciary;
-        -webkit-box-shadow: 0 7px 0 $terciary, 0 14px 0 $terciary;
-        box-shadow: 0 7px 0 $terciary, 0 14px 0 $terciary;
-    }
-    
-    /* . Menu icon */
+  }
+
+  /* Menu icon */
+  .menu-icon::after {
+    background: $secondary;
+    -webkit-box-shadow: 0 7px 0 $secondary, 0 14px 0 $secondary;
+    box-shadow: 0 7px 0 $secondary, 0 14px 0 $secondary;
+  }
+  .menu-icon:hover::after {
+    background: $terciary;
+    -webkit-box-shadow: 0 7px 0 $terciary, 0 14px 0 $terciary;
+    box-shadow: 0 7px 0 $terciary, 0 14px 0 $terciary;
+  }
+
+  /* . Menu icon */
 }
 /* . Top bar */
 
 /* Navigation bar */
 #navigation_bar.subnavigation {
-    background-color: $brand;
+  background-color: $brand;
 
-    a {
-        color: $navbar-text;
+  a {
+    color: $navbar-text;
 
-        &:hover {
-            color: $navbar-text-hover;    
-        }
+    &:hover {
+      color: $navbar-text-hover;
     }
+  }
 }
 /* . Navigation bar */
 
 /* Responsive menu */
 #responsive-menu {
-    .subnavigation {
-        a {
-            color: $brand;
+  .subnavigation {
+    a {
+      color: $brand;
 
-            &:hover {
-                color: $secondary;
-            }
-        }
+      &:hover {
+        color: $secondary;
+      }
     }
+  }
 }
 /* . Responsive menu */
 
@@ -128,9 +157,9 @@ a, p {
 /* 03. Welcome */
 /*************************************************/
 .welcome {
-    margin-top: -$welcome-margin;
+  margin-top: -$welcome-margin;
 
-    /* 
+  /*
         background-image: image-url("banner_test.png");
         height: 500px;
         background-size: cover;
@@ -140,22 +169,22 @@ a, p {
 }
 
 /* Slideshow */
-#slideshow { 
-    position: relative; 
-    width: 100%; 
-    height: 500px; 
-    
-    div { 
-        position: absolute;
-        width: inherit;
-        height: inherit;
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+#slideshow {
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  div {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+  }
 }
 /* . Slideshow */
 
@@ -163,58 +192,58 @@ a, p {
 /* 04. Footer */
 /*************************************************/
 .footer {
-    min-height: initial;
+  min-height: initial;
 
-    .subfooter {
-        background: $secondary;
-        color: $white;
+  .subfooter {
+    background: $secondary;
+    color: $white;
 
-        a {
-            color: $white;
-        }
-
-        /* Social icons */
-        .column.social {
-            a {
-                color: $terciary;
-
-                &:hover {
-                    color: $white;
-                }
-            }
-        }
-        /* . Social icons */
+    a {
+      color: $white;
     }
+
+    /* Social icons */
+    .column.social {
+      a {
+        color: $terciary;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+    /* . Social icons */
+  }
 }
 
 /*************************************************/
 /* 05. Images */
 /*************************************************/
 .img-white {
-    -moz-filter: grayscale(1) brightness(2);
-    -webkit-filter: grayscale(1) brightness(2);
-    filter: grayscale(1) brightness(2);
+  -moz-filter: grayscale(1) brightness(2);
+  -webkit-filter: grayscale(1) brightness(2);
+  filter: grayscale(1) brightness(2);
 }
 .img-white-invert {
-    -moz-filter: invert(1) grayscale(1) brightness(4.5);
-    -webkit-filter: invert(1) grayscale(1) brightness(4.5);
-    filter: invert(1) grayscale(1) brightness(4.5);
+  -moz-filter: invert(1) grayscale(1) brightness(4.5);
+  -webkit-filter: invert(1) grayscale(1) brightness(4.5);
+  filter: invert(1) grayscale(1) brightness(4.5);
 }
 
 /*************************************************/
 /* 06. Auth page */
 /*************************************************/
 .auth-page {
-    .logo {
-        text-align: center;
-        width: 100%;
-    }
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
 
-    .auth-image {
-        background: $brand image-url("auth_bg_secondary.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+  .auth-image {
+    background: $brand image-url("auth_bg_secondary.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 /*************************************************/

@@ -21,11 +21,15 @@
             <%= t("application.menu") %>
         </span>
 
-        <h1 class="top-bar-title">
+        <div class="top-bar-title">
             <%= link_to root_path, accesskey: "0" do %>
             <%= image_tag(image_path_for("logo_aguimes.jpg"), class: "float-left", alt: setting["org_name"]) %>
             <% end %>
-        </h1>
+            <h1 class="top-bar-subtitle">
+                  DecideAgüimes
+            </h1>
+        </div>
+
 
         <div id="responsive-menu">
             <div class="top-bar-right">
