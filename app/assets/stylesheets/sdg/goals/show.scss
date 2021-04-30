@@ -63,6 +63,25 @@
         }
       }
     }
+
+    .goal-description-content {
+
+      .read-more {
+        text-align: center;
+      }
+
+      .read-more button {
+        @include link;
+      }
+    }
+
+    .goal-description {
+
+      &.short {
+        height: rem-calc(150);
+        overflow: hidden;
+      }
+    }
   }
 
   .feed-processes {
