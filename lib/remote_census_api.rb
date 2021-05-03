@@ -82,7 +82,7 @@ class RemoteCensusApi
     end
 
     def client
-      @client = Savon.client(wsdl: Setting["remote_census.general.endpoint"])
+      @client = Savon.client(ssl_verify_mode: :none, wsdl: Setting["remote_census.general.endpoint"])
     end
 
     def request(document_type, document_number, date_of_birth, postal_code)
