@@ -13,7 +13,7 @@ set :application, "consul"
 set :deploy_to, deploysecret(:deploy_to)
 set :ssh_options, port: deploysecret(:ssh_port)
 
-set :repo_url, "https://github.com/consul/consul.git"
+set :repo_url, "https://github.com/Ayuntamiento-de-Aguimes/consul.git"
 
 set :revision, `git rev-parse --short #{fetch(:branch)}`.strip
 
@@ -34,6 +34,27 @@ set :delayed_job_workers, 2
 set :delayed_job_roles, :background
 
 set :whenever_roles, -> { :app }
+
+namespace :rails do
+  desc "Remote console"
+  task :console do
+    on roles(:app) do |h|
+      run_interactively "bundle exec rails console #{fetch(:rails_env)}", h.user
+    end
+  end
+
+  desc "Remote dbconsole"
+  task :dbconsole do
+    on roles(:app) do |h|
+      run_interactively "bundle exec rails dbconsole #{fetch(:rails_env)}", h.user
+    end
+  end
+
+  def run_interactively(command, user)
+    info "Running `#{command}` as #{user}@#{host}"
+    exec %Q(ssh #{user}@#{host} -t "bash --login -c 'cd #{fetch(:deploy_to)}/current && #{command}'")
+  end
+end
 
 namespace :deploy do
   Rake::Task["delayed_job:default"].clear_actions
