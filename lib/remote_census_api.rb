@@ -89,9 +89,7 @@ class RemoteCensusApi
 
     def request(document_type, document_number, date_of_birth, postal_code)
       structure = JSON.parse(Setting["remote_census.request.structure"], symbolize_names: true)
-      fill_in(structure, Setting["remote_census.request.document_type"].to_sym, document_type)
       fill_in(structure, Setting["remote_census.request.document_number"].to_sym, document_number)
-      fill_in(structure, Setting["remote_census.request.postal_code"].to_sym, postal_code)
       if date_of_birth.present?
         fill_in(structure,
                 Setting["remote_census.request.date_of_birth"].to_sym,
