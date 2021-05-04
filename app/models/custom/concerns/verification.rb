@@ -3,6 +3,14 @@ require_dependency Rails.root.join('app', 'models', 'concerns', 'verification').
 module Verification
   extend ActiveSupport::Concern
 
+  def verification_email_sent?
+    true
+  end
+
+  def verification_sms_sent?
+    true
+  end
+
   def sms_verified?
     true
   end
