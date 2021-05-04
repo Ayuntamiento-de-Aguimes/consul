@@ -3,8 +3,6 @@ class RemoteCensusApi
   def call(document_type, document_number, date_of_birth, postal_code)
     response = nil
     get_document_number_variants(document_type, document_number).each do |variant|
-      puts(variant)
-      puts(get_response_body(document_type, variant, date_of_birth, postal_code))
       response = Response.new(get_response_body(document_type, variant, date_of_birth, postal_code))
       return response if response.valid?
     end
@@ -75,8 +73,10 @@ class RemoteCensusApi
   private
 
     def get_response_body(document_type, document_number, date_of_birth, postal_code)
+      require 'json'
       if end_point_defined?
-        request = request(document_type, document_number, date_of_birth, postal_code)
+        request = request(document_type, document_number, date_of_birth, postal_code).to_json
+        puts(request)
         client.call(Setting["remote_census.request.method_name"].to_sym, message: request).body
       else
         stubbed_invalid_response
