@@ -1,6 +1,5 @@
 module Consul
   class Application < Rails::Application
-    config.paths['app/models/custom'].unshift(Rails.root.join('app', 'models', 'custom', 'concerns'))
   	config.i18n.default_locale = :es
     available_locales = [
       "en",
