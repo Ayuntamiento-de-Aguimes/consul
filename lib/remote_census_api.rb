@@ -75,7 +75,7 @@ class RemoteCensusApi
     def get_response_body(document_type, document_number, date_of_birth, postal_code)
       require 'json'
       if end_point_defined?
-        request = request(document_type, document_number, date_of_birth, postal_code)
+        request = request(document_type, document_number, date_of_birth, postal_code).transform_keys(&:to_sym)
         puts(request)
         client.call(Setting["remote_census.request.method_name"].to_sym, message: request).body
       else
@@ -88,11 +88,13 @@ class RemoteCensusApi
     end
 
     def request(document_type, document_number, date_of_birth, postal_code)
-      structure = JSON.parse(Setting["remote_census.request.structure"], symbolize_names: true)
-      fill_in(structure, Setting["remote_census.request.document_number"].to_sym, document_number)
+      structure = JSON.parse(Setting["remote_census.request.structure"])
+      fill_in(structure, Setting["remote_census.request.document_type"], document_type)
+      fill_in(structure, Setting["remote_census.request.document_number"], document_number)
+      fill_in(structure, Setting["remote_census.request.postal_code"], postal_code)
       if date_of_birth.present?
         fill_in(structure,
-                Setting["remote_census.request.date_of_birth"].to_sym,
+                Setting["remote_census.request.date_of_birth"],
                 I18n.l(date_of_birth, format: :default))
       end
       structure
