@@ -3,6 +3,8 @@ class RemoteCensusApi
   def call(document_type, document_number, date_of_birth, postal_code)
     response = nil
     get_document_number_variants(document_type, document_number).each do |variant|
+      puts(variant)
+      puts(get_response_body(document_type, variant, date_of_birth, postal_code))
       response = Response.new(get_response_body(document_type, variant, date_of_birth, postal_code))
       return response if response.valid?
     end
@@ -86,14 +88,7 @@ class RemoteCensusApi
     end
 
     def request(document_type, document_number, date_of_birth, postal_code)
-      require 'json'
       structure = JSON.parse(Setting["remote_census.request.structure"])
-      puts(Setting["remote_census.request.document_number"])
-      puts(document_number)
-      puts(Setting["remote_census.request.date_of_birth"])
-      puts(date_of_birth)
-      puts(I18n.l(date_of_birth, format: :default))
-
       fill_in(structure, Setting["remote_census.request.document_type"], document_type)
       fill_in(structure, Setting["remote_census.request.document_number"], document_number)
       fill_in(structure, Setting["remote_census.request.postal_code"], postal_code)
