@@ -88,8 +88,8 @@ class RemoteCensusApi
     def request(document_type, document_number, date_of_birth, postal_code)
       require 'json'
       structure = JSON.parse(Setting["remote_census.request.structure"])
-      puts(Setting["remote_census.request.document_type"])
-      puts(document_type)
+      puts(Setting["remote_census.request.document_number"])
+      puts(document_number)
       puts(Setting["remote_census.request.date_of_birth"])
       puts(date_of_birth)
       puts(I18n.l(date_of_birth, format: :default))
@@ -102,8 +102,8 @@ class RemoteCensusApi
                 Setting["remote_census.request.date_of_birth"],
                 I18n.l(date_of_birth, format: :default))
       end
-      puts(structure.to_json)
-      structure.to_json
+      puts(structure)
+      structure
     end
 
     def fill_in(structure, path_value, value)
