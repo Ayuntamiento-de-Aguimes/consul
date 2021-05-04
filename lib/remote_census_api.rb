@@ -23,7 +23,7 @@ class RemoteCensusApi
 
     def valid?
       path_value = Setting["remote_census.response.valid"]
-      extract_value(path_value).present?
+      extract_value(path_value).split('|')[0].present?
     end
 
     def date_of_birth
