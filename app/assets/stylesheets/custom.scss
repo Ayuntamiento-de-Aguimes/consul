@@ -89,9 +89,9 @@ p {
   }
 
   .top-bar-subtitle {
-    margin-left: 10px;
-    font-size: rem-calc(18);
-    margin-bottom: 0;
+    margin-left: 50px;
+    margin-bottom: 3px;
+    font-size: rem-calc(16);
     color: #037189;
     @include breakpoint(small only) {
       display: none;
@@ -188,6 +188,12 @@ p {
   }
 }
 /* . Slideshow */
+
+.feeds-participation {
+  .feed-proposals {
+    margin-top: 0 !important;
+  }
+}
 
 /*************************************************/
 /* 04. Footer */
