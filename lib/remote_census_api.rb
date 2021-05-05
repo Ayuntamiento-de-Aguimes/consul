@@ -73,10 +73,9 @@ class RemoteCensusApi
   private
 
     def get_response_body(document_type, document_number, date_of_birth, postal_code)
-      require 'json'
       if end_point_defined?
+        document_number = '0' + document_number.gsub(/[a-zA-Z]/i, "") if document_number.present?
         request = request(document_type, document_number, date_of_birth, postal_code).transform_keys(&:to_sym)
-        puts(request)
         client.call(Setting["remote_census.request.method_name"].to_sym, message: request).body
       else
         stubbed_invalid_response
