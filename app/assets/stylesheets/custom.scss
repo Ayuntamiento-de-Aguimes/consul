@@ -90,7 +90,8 @@ p {
 
   .top-bar-subtitle {
     margin-left: 10px;
-    font-size: rem-calc(24);
+    font-size: rem-calc(18);
+    margin-bottom: 0;
     color: #037189;
     @include breakpoint(small only) {
       display: none;
