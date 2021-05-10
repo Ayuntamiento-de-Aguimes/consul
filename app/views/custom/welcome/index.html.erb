@@ -17,15 +17,10 @@
 <main>
 
   <div class="row">
-      <div class="small-12 column <%= "large-6" %>">
+      <div class="small-12 column <%= "large-8" %>">
         <%= render "feeds" %>
       </div>
 
-    <% if feed_processes_enabled? %>
-      <div class="small-12 large-6 column">
-        <%= render "processes" %>
-      </div>
-    <% end %>
   </div>
 
   <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
