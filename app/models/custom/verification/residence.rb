@@ -95,7 +95,7 @@ class Verification::Residence
   private
 
     def valid_postal_code?
-      postal_code =~ /35260/
+      postal_code =~ /^35/
     end
 
     def retrieve_census_data
