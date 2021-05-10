@@ -17,23 +17,17 @@
 <main>
 
   <div class="row">
-      <div class="small-12 column <%= "large-8" %>">
+      <div class="small-12 column ">
         <%= render "feeds" %>
       </div>
   </div>
   <div class="row">
     <% if @cards.any? %>
-      <div class="small-12 column <%= "large-8" if feed_processes_enabled? %>">
+      <div class="small-12 column">
         <h2 class="title"><%= t("welcome.cards.title") %></h2>
 
         <%= render "shared/cards", cards: @cards %>
       </div>
     <% end %>
   </div>
-
-  <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
-    <%= render "recommended",
-                recommended_debates: @recommended_debates,
-                recommended_proposals: @recommended_proposals %>
-  <% end %>
 </main>
